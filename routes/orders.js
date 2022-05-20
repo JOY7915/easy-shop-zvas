@@ -101,7 +101,7 @@ router.delete('/:id', (req, res)=>{
 
 router.get('/get/totalsales', async (req, res)=> {
     const totalSales= await Order.aggregate([
-        { $group: { _id: null , totalsales : { $sum : '$totalPrice'}}}
+        { $group: { id: null , totalsales : { $sum : '$totalPrice'}}}
     ])
 
     if(!totalSales) {
